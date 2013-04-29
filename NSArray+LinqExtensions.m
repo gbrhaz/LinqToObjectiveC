@@ -106,6 +106,30 @@
     return self.count == 0 ? nil : self[0];
 }
 
+- (id) first:(Condition)predicate
+{
+    for (id item in self) {
+        if (predicate(item)) {
+            return item;
+        }
+    }
+    
+    return nil;
+}
+
+- (id) single:(Condition)predicate
+{
+    id returnItem = nil;
+    for (id item in self) {
+        if (predicate(item)) {
+            if (returnItem) return nil;
+            returnItem = item;
+        }
+    }
+    
+    return nil;
+}
+
 - (id)lastOrNil
 {
     return self.count == 0 ? nil : self[self.count-1];

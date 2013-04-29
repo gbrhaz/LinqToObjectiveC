@@ -86,6 +86,10 @@ typedef id (^Accumulator)(id item, id aggregate);
  */
 - (id) firstOrNil;
 
+- (id) first:(Condition)predicate;
+
+- (id) single:(Condition)predicate;
+
 /** Returns the last item from the source array, or nil if the array is empty.
  
  @return The last item from the source array, or nil if the array is empty.
